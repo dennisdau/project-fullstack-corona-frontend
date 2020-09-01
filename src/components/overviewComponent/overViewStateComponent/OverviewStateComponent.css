@@ -1,7 +1,8 @@
 .state-info-wrapper{
-    width:80%;
+    width: 80%;
     margin:auto;
-    
+    margin-bottom:20px;
+    border:2px solid black;
 }
 
 .row{
@@ -12,7 +13,7 @@
 
 
 .row-item{
-    width: 30%;
+    width: 33.33%;
     text-align:  center;
     border: 1px solid lightslategray;
 }
