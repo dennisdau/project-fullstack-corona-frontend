@@ -1,12 +1,31 @@
 .nav-wrapper {
-    background-color: #563d7c;
+    background-color: lightslategray;
     padding: 3px 12% 3px 12%;
     font-weight: bold;
+    display:flex;
 }
 
 .nav-link {
     color: white !important;
     margin-right: 80px;
+    margin-top:80px;
+}
+
+.nav-link:hover {
+  color: lightgray !important;
+}
+
+.title{
+  color:white !important;
+}
+
+.nav-title-wrapper{
+  width:20%;
+}
+
+.nav-link-wrapper{
+  margin-left:40px;
+  width:80%;
 }
 
 

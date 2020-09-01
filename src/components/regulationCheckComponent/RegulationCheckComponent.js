@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import ConditionalInput from './ConditionalInput';
+import './RegulationCheckComponent.css';
 
 
 
@@ -78,7 +79,7 @@ export class RegulationComponent extends React.Component {
 
         return(
             <div className="login-container">
-                 <div className="user-login-component-wrapper">       
+                 <div className="regulation-check-component-wrapper">       
                             <ConditionalInput                               
                                 inputValue={this.state.stateInput}
                                 labelText='Bundesland'
@@ -125,7 +126,7 @@ export class RegulationComponent extends React.Component {
                             className="button-log-in btn  btn-danger" 
                             onClick={this.handleClick} 
                             > 
-                        Login
+                        Überprüfung
                         </button>                   
                     </div>
                 </div>
