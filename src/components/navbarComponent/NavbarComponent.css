@@ -1,0 +1,14 @@
+.nav-wrapper {
+    background-color: #563d7c;
+    padding: 3px 12% 3px 12%;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: white !important;
+    margin-right: 80px;
+}
+
+
+
+
