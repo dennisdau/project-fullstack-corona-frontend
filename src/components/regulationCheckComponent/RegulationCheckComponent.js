@@ -13,11 +13,11 @@ export class RegulationComponent extends React.Component {
         
         this.state = {
             stateInput: 'Niedersachsen',
-            personAmountInput: 0,
+            personAmountInput:10,
             householdsInput: 1,
-            inClosedRoomsInput: true,
+            inClosedRoomsInput: false,
             locationSizeInput: 1,
-            wearMaskInput: true,
+            wearMaskInput: false,
             regulation:{}
         }
 
@@ -28,6 +28,11 @@ export class RegulationComponent extends React.Component {
     handleClickCheckRegulation =() =>{
 
         console.log(RegulationCheck.checkIfRegulationAreComplied(this.state))
+        if (RegulationCheck.checkIfRegulationAreComplied(this.state)){
+            alert("Genehmigt")
+        } else {
+            alert("Leider erfüllen Sioe nicht die Regularieren von "+ this.state.stateInput)
+        }
       
     }
     
@@ -62,11 +67,13 @@ export class RegulationComponent extends React.Component {
         })
     }
 
-    updateInClosedRoomsInput = (event) => {
-        this.setState({
-            inClosedRoomsInput: event.target.value
-        })
-    }
+
+    updateInClosedRoomsInput = () => {
+        this.setState(initialState => ({
+            inClosedRoomsInput: !initialState.inClosedRoomsInput,
+        }));
+      }
+
 
     updateLocationSizeInput = (event) => {
         this.setState({
@@ -74,11 +81,11 @@ export class RegulationComponent extends React.Component {
         })
     }
 
-    updateWearMaskInput = (event) => {
-        this.setState({
-            wearMaskInput: event.target.value
-        })
-    }
+    updateWearMaskInput = () => {
+        this.setState(initialState => ({
+            wearMaskInput: !initialState.wearMaskInput,
+        }));
+      }
 
     render() {
 
@@ -103,24 +110,32 @@ export class RegulationComponent extends React.Component {
                                 type='number'
                                 returnValue={this.updateHouseholdsInput}
                             />
-                            <ConditionalInput                               
-                                inputValue={this.state.inClosedRoomsInput}
-                                labelText='in geschlossenen Räumen? [J/N]'
-                                type='text'
-                                returnValue={this.updateInClosedRoomsInput}
-                            />
+
+
                             <ConditionalInput                               
                                 inputValue={this.state.locationSizeInput}
                                 labelText='Veranstaltungsfläche [m2]'
                                 type='number'
                                 returnValue={this.updateLocationSizeInput}
                             />
-                            <ConditionalInput                               
-                                inputValue={this.state.wearMaskInput}
-                                labelText='Tragen die Teilnehmer eine Maske? [J/N]'
-                                type='text'
-                                returnValue={this.updateWearMaskInput}
-                            />
+                        
+
+                            <label>
+                                    <input type="checkbox"
+                                            checked={this.state.inClosedRoomsInput}
+                                            onChange={this.updateInClosedRoomsInput}
+                                    />
+                                    in geschlossenen Räumen?
+                            </label>
+
+
+                            <label>
+                                    <input type="checkbox"
+                                            checked={this.state.wearMaskInput}
+                                            onChange={this.updateWearMaskInput}
+                                    />
+                                    Tragen die Teilnehmer eine Maske?
+                            </label>
 
                           
                                  
