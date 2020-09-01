@@ -10,3 +10,15 @@
     color: black;
     padding: 1%;
   }
+
+  .checkEvent-wrapper{
+    display: inline-block;
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+  }
+  
+  .button-checkEvent {
+    color: white;
+    background-color: lightslategray;;
+  }

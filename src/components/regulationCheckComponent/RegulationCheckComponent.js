@@ -121,12 +121,12 @@ export class RegulationComponent extends React.Component {
                                  
             
                     
-                    <div className="login-buttons-wrapper">
+                    <div className="checkEvent-wrapper">
                         <button 
-                            className="button-log-in btn  btn-danger" 
+                            className="button-checkEvent btn " 
                             onClick={this.handleClick} 
                             > 
-                        Überprüfung
+                                Überprüfung
                         </button>                   
                     </div>
                 </div>
