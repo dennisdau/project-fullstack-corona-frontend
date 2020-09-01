@@ -31,7 +31,7 @@ export class RegulationComponent extends React.Component {
         if (RegulationCheck.checkIfRegulationAreComplied(this.state)){
             alert("Genehmigt")
         } else {
-            alert("Leider erfüllen Sioe nicht die Regularieren von "+ this.state.stateInput)
+            alert("Leider erfüllen Sie nicht die Regularieren von "+ this.state.stateInput)
         }
       
     }
