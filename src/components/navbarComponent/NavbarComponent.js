@@ -28,9 +28,6 @@ export class NavbarComponent extends React.Component {
                             <Link to="/regulation-check" className="nav-link">
                             REGULATION CHECK    
                             </Link>
-                            <Link to="/dashboard" className="nav-link ">
-                                DASHBOARD                            
-                            </Link>
                         </Nav>
                     </div>   
                 </Navbar>

@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import RegulationCheckComponent from "./components/regulationCheckComponent/RegulationCheckComponent";
 import OverviewComponent from "./components/overviewComponent/OverviewComponent";
-import DashboardComponent from "./components/dashboardComponent/DashboardComponent";
 import NavbarComponent from "./components/navbarComponent/NavbarComponent";
 import { BrowserRouter as Router, Route , Switch } from 'react-router-dom';
 
@@ -15,7 +14,6 @@ function App() {
               <Switch>
                   <Route path="/overview" component={OverviewComponent} />
                   <Route path="/regulation-check" component={RegulationCheckComponent} />
-                  <Route path="/dashboard" component={DashboardComponent} />
                   <Route path="/" component={OverviewComponent} /> 
               </Switch>
             </div>

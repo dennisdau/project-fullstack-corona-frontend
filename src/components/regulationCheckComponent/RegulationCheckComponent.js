@@ -23,10 +23,6 @@ export class RegulationComponent extends React.Component {
         }
 
     }
-
-   
-
-
     
     handleClickCheckRegulation = () => {
         this.setState({regulation:''})
