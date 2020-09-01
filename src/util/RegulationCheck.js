@@ -1,8 +1,8 @@
 class RegulationCheck{
 
     static  checkIfRegulationAreComplied = (data) => {
-        console.log(data)
-        console.log(data.personAmountInput/data.locationSizeInput)
+        //console.log(data)
+
         if (!data.regulation) return false 
         if (data.regulation.maskDuty===true && data.wearMaskInput===false) return false
         if (data.inClosedRoomsInput===true && 

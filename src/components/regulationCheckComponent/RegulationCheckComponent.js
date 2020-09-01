@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import ConditionalInput from './ConditionalInput';
 import RegulationCheck from '../..//util/RegulationCheck';
 import "./RegulationCheckComponent.css";
+import OverviewStateComponent from '../overviewComponent/overViewStateComponent/OverviewStateComponent'
 
 
 export class RegulationComponent extends React.Component {
@@ -18,35 +19,29 @@ export class RegulationComponent extends React.Component {
             inClosedRoomsInput: false,
             locationSizeInput: 1,
             wearMaskInput: false,
-            regulation:{}
+            regulation:''
         }
 
     }
 
    
 
-    handleClickCheckRegulation =() =>{
 
-        console.log(RegulationCheck.checkIfRegulationAreComplied(this.state))
-        if (RegulationCheck.checkIfRegulationAreComplied(this.state)){
-            alert("Genehmigt")
-        } else {
-            alert("Leider erfüllen Sie nicht die Regularieren von "+ this.state.stateInput)
-        }
-      
-    }
     
-    handleGetDataClick = () => {
+    handleClickCheckRegulation = () => {
+        this.setState({regulation:''})
         axios.get('http://localhost:8080/regulation')
         .then((data) =>{
-                    //console.log(data.data)
                     let regulation = data.data.filter((regulation) => regulation.state ==(this.state.stateInput))[0]
                     this.setState({regulation:regulation}) 
-                    console.log(this.state.regulation)
+                    if (RegulationCheck.checkIfRegulationAreComplied(this.state)){
+                        alert("Genehmigt")
+                    } else {
+                        alert("Leider erfüllen Sie nicht die Regularieren von "+ this.state.stateInput)
+                    }
                     })
         .catch(error => {                    
         });     
-        console.log(this.state.regulation)
     }
 
     updateStateInput = (event) => {
@@ -144,18 +139,13 @@ export class RegulationComponent extends React.Component {
                     <div className="checkEvent-wrapper">
                         <button 
                             className="button-checkEvent btn " 
-                            onClick={this.handleGetDataClick} 
-                            > 
-                        Get Server Data
-                        </button>          
-
-                        <button 
-                            className="button-checkEvent btn " 
                             onClick={this.handleClickCheckRegulation} 
                             > 
                         Check Veranstaltung
                         </button>         
                     </div>
+                    {console.log(this.state.regulation)}
+                    {this.state.regulation ?  <OverviewStateComponent  regData={this.state.regulation} /> : null}
                 </div>
             </div>
         )
