@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios'
 import { withRouter } from "react-router-dom";
 import OverviewStateComponent from "./overViewStateComponent/OverviewStateComponent"
 
@@ -9,7 +10,18 @@ export class OverviewComponent extends React.Component {
         super(props);
         
         this.state = {
+            regulations:{}
         }
+    }
+
+    componentDidMount(){
+        axios.get('http://localhost:8080/regulation')
+        .then((data) =>{
+                    this.setState({regulations:data.data}) 
+                    console.log(this.state.regulations)
+                    })
+        .catch(error => {                    
+        });     
     }
 
 
@@ -17,7 +29,9 @@ export class OverviewComponent extends React.Component {
         return(
             <div>
                 <h3>this is the Overviewcomponent</h3>
+                
                 <OverviewStateComponent />
+
             </div>
         )
     }

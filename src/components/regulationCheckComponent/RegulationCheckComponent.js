@@ -2,11 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import ConditionalInput from './ConditionalInput';
-import './RegulationCheckComponent.css';
-
-
-
-
+import RegulationCheck from '../..//util/RegulationCheck'
 
 
 export class RegulationComponent extends React.Component {
@@ -15,28 +11,36 @@ export class RegulationComponent extends React.Component {
         super(props);
         
         this.state = {
-            stateInput: '',
+            stateInput: 'Niedersachsen',
             personAmountInput: 0,
             householdsInput: 1,
             inClosedRoomsInput: true,
             locationSizeInput: 1,
-            wearMaskInput: true
+            wearMaskInput: true,
+            regulation:{}
         }
 
     }
 
-    handleClick =() =>{
-        //console.log(this.state)
-        this.handleLoginClick()
+   
+
+    handleClickCheckRegulation =() =>{
+
+        console.log(RegulationCheck.checkIfRegulationAreComplied(this.state))
+      
     }
     
-    handleLoginClick = () => {
+    handleGetDataClick = () => {
         axios.get('http://localhost:8080/regulation')
-        .then(data => {
-                    console.log(data.data);    
+        .then((data) =>{
+                    //console.log(data.data)
+                    let regulation = data.data.filter((regulation) => regulation.state ==(this.state.stateInput))[0]
+                    this.setState({regulation:regulation}) 
+                    console.log(this.state.regulation)
                     })
         .catch(error => {                    
         });     
+        console.log(this.state.regulation)
     }
 
     updateStateInput = (event) => {
@@ -79,7 +83,7 @@ export class RegulationComponent extends React.Component {
 
         return(
             <div className="login-container">
-                 <div className="regulation-check-component-wrapper">       
+                 <div className="user-login-component-wrapper">       
                             <ConditionalInput                               
                                 inputValue={this.state.stateInput}
                                 labelText='Bundesland'
@@ -121,13 +125,20 @@ export class RegulationComponent extends React.Component {
                                  
             
                     
-                    <div className="checkEvent-wrapper">
+                    <div className="login-buttons-wrapper">
                         <button 
-                            className="button-checkEvent btn " 
-                            onClick={this.handleClick} 
+                            className="button-log-in btn  btn-danger" 
+                            onClick={this.handleGetDataClick} 
                             > 
-                                Überprüfung
-                        </button>                   
+                        Get Server Data
+                        </button>          
+
+                        <button 
+                            className="button-log-in btn  btn-danger" 
+                            onClick={this.handleClickCheckRegulation} 
+                            > 
+                        Check Veranstaltung
+                        </button>         
                     </div>
                 </div>
             </div>
