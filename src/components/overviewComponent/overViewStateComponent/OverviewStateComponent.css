@@ -1,0 +1,45 @@
+.state-info-wrapper{
+    width:80%;
+    margin:auto;
+    
+}
+
+.row{
+    display: flex;
+    text-align: center;
+}
+
+
+
+.row-item{
+    width: 30%;
+    text-align:  center;
+    border: 1px solid lightslategray;
+}
+
+.row-item-meetings{
+    width:80%;
+    margin:auto;
+    display:flex;
+}
+
+p{
+    margin-top:2px;
+}
+
+hr{
+    width:70%;
+}
+
+h5{
+    margin-bottom:3px;
+}
+
+h6{
+    margin-bottom: 3px;
+}
+
+p{
+    margin-bottom:3px;
+    font-size:0.8em;
+}

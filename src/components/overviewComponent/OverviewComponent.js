@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
+import OverviewStateComponent from "./overViewStateComponent/OverviewStateComponent"
 
 
 export class OverviewComponent extends React.Component {
@@ -17,6 +17,7 @@ export class OverviewComponent extends React.Component {
         return(
             <div>
                 <h3>this is the Overviewcomponent</h3>
+                <OverviewStateComponent />
             </div>
         )
     }
