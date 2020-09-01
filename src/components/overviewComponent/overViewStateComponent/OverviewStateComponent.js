@@ -11,18 +11,20 @@ export class OverviewStateComponent extends React.Component {
 
     constructor(props) {
         super(props);
+
+        let propData = this.props.regData;
         
         this.state = {
-            stateName: 'Niedersachsen',
-            maxPersonsClosedRooms: 5,
-            maxPersonsOutside: 10,
-            maxHouseholdsClosedrooms: 1,
-            maxHouseholdsOutside: 2,
-            maskDuty: false,
-            closedBuildingtypes: "Büros, Theater",
-            maxPersonsPerSquareMeterClosedRooms: 0.3,
-            maxPersonsPerSquareMeterOutside: 0.6,
-            otherRegulations: "Sonstige Einschränkung"
+            stateName: propData.state,
+            maxPersonsClosedRooms: propData.maxPersonsClosedRooms,
+            maxPersonsOutside: propData.maxPersonsOutside,
+            maxHouseholdsClosedrooms: propData.maxHouseholdsClosedrooms,
+            maxHouseholdsOutside: propData.maxHouseholdsOutside,
+            maskDuty: propData.maskDuty,
+            closedBuildingtypes: propData.closedBuildingtypes,
+            maxPersonsPerSquareMeterClosedRooms: propData.maxPersonsPerSquareMeterClosedRooms,
+            maxPersonsPerSquareMeterOutside: propData.maxPersonsPerSquareMeterOutside,
+            otherRegulations: propData.otherRegulations
         }
 
     }

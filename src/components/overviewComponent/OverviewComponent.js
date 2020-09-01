@@ -10,9 +10,11 @@ export class OverviewComponent extends React.Component {
         super(props);
         
         this.state = {
-            regulations:{}
+            regulations:[]
         }
     }
+
+    
 
     componentDidMount(){
         axios.get('http://localhost:8080/regulation')
@@ -24,13 +26,27 @@ export class OverviewComponent extends React.Component {
         });     
     }
 
+    renderStateOverViewComponents = (regulations) => {   
+        return(
+            <div>
+                {regulations.map((regulation) => {
+                    return <OverviewStateComponent regData={regulation}/>
+                })}
+    
+            </div>
+        ) 
+    }
+
 
     render() {
+
+
         return(
             <div>
                 <h3>this is the Overviewcomponent</h3>
                 
-                <OverviewStateComponent />
+                {this.renderStateOverViewComponents(this.state.regulations)}
+                
 
             </div>
         )
